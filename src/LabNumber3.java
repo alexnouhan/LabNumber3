@@ -32,13 +32,17 @@ public class LabNumber3 {
 
 			// validate entry is an integer
 
-			while (!scan.hasNextInt()) {
+			do {
+				while (!scan.hasNextInt()) {
+					System.out.print("Please enter an integer, 1-100, try again: ");
+					scan.nextLine();
+				}
 				System.out.print("Please enter an integer, 1-100, try again: ");
-				scan.nextLine();
-			}
+				userInt = scan.nextInt();
 
-			userInt = scan.nextInt();
-			
+			} while (userInt < 1 || userInt > 100);
+
+			System.out.println();
 			
 			// Evaluate Integer
 
@@ -50,14 +54,17 @@ public class LabNumber3 {
 
 			// Even conditions check
 			if (even == true) {
+
 				if (userInt >= 2 && userInt <= 25) {
 					System.out.println("Even and less than 25.");
+
 				} else if (userInt >= 26 && userInt <= 60) {
 					System.out.println("Even");
+
 				} else if (userInt > 60) {
 					System.out.println(userInt + " Even");
 				}
-				//
+
 			} else if (even == false && userInt > 60) {
 				System.out.println("Odd and over 60.");
 			}
@@ -65,11 +72,14 @@ public class LabNumber3 {
 			// Ask to continue and validate entry
 			System.out.println("Continue? (y/n): ");
 			do {
+
 				userChar = scan.next().charAt(0);
 				userChar = Character.toLowerCase(userChar);
+
 				if (userChar != 'y' && userChar != 'n') {
 					System.out.println("Sorry, please try again! (y/n): ");
 				}
+
 			} while (userChar != 'y' && userChar != 'n');
 
 			scan.nextLine();
